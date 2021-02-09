@@ -9,11 +9,11 @@ public class JDBCConnection {
 		Connection connection = null;
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			String user = "maivien";
-			String pass = "maivien1111";
-			String url = "jdbc:sqlserver://localhost:1433;databaseName=UNIFY";
+			String user = "sa";
+			String pass = "123";
+			String url = "jdbc:sqlserver://localhost:1433;databaseName=UNIFY";	
 			connection = DriverManager.getConnection(url, user, pass);
-			System.out.println("thanh cong");
+			System.out.println("Success!");
 			
 		} catch (ClassNotFoundException | SQLException ex) {
 			ex.printStackTrace();

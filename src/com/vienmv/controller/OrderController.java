@@ -54,7 +54,7 @@ public class OrderController extends HttpServlet {
 				cartItem.setCart(cart);
 				cartItem.setId(RandomUUID.getRandomID());
 				SendMail sm = new SendMail();
-				sm.sendMail(cart.getBuyer().getEmail(), "UNIFY", "Payment success. We will contact you soon ! ");
+				sm.sendMail(cart.getBuyer().getEmail(), "UNIFY", " Nội dung maill! ");
 				cartItemService.insert(cartItem);
 				
 			}
