@@ -1,8 +1,6 @@
 package com.vienmv.service;
 
 import java.util.List;
-
-import com.vienmv.model.Cart;
 import com.vienmv.model.CartItem;
 
 public interface CartItemService {

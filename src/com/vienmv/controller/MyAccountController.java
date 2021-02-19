@@ -21,6 +21,7 @@ import com.vienmv.model.User;
 import com.vienmv.service.UserService;
 import com.vienmv.service.impl.UserServiceImpl;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/member/myaccount" })
 public class MyAccountController extends HttpServlet {
 	UserService userService = new UserServiceImpl();

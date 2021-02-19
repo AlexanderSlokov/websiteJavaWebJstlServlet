@@ -19,7 +19,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.vienmv.model.User;
 import com.vienmv.service.UserService;
 import com.vienmv.service.impl.UserServiceImpl;
+import com.vienmv.util.Constant;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/admin/user/add" })
 public class UserAddController extends HttpServlet {
 	UserService userService = new UserServiceImpl();
@@ -42,33 +44,30 @@ public class UserAddController extends HttpServlet {
 		User user = new User();
 		DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
 		ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
-
 		try {
 			List<FileItem> items = servletFileUpload.parseRequest(req);
 			for (FileItem item : items) {
 				if (item.getFieldName().equals("email")) {
-					user.setEmail(item.getString());;
+					user.setEmail(item.getString());
+					;
 				} else if (item.getFieldName().equals("username")) {
 					user.setUsername(item.getString());
 				} else if (item.getFieldName().equals("password")) {
 					user.setPassword(item.getString());
 				} else if (item.getFieldName().equals("role")) {
-					user.setRoleId(Integer.parseInt(item.getString()));;
+					user.setRoleId(Integer.parseInt(item.getString()));
+					;
 				} else if (item.getFieldName().equals("avatar")) {
-					final String dir = "F:\\upload";
 					String originalFileName = item.getName();
 					int index = originalFileName.lastIndexOf(".");
 					String ext = originalFileName.substring(index + 1);
 					String fileName = System.currentTimeMillis() + "." + ext;
-					File file = new File(dir + "/" + fileName);
+					File file = new File(Constant.DIR + "/" + fileName);
 					item.write(file);
-
 					user.setAvatar(fileName);
 				}
 			}
-
 			userService.insert(user);
-
 			resp.sendRedirect(req.getContextPath() + "/admin/user/list");
 		} catch (FileUploadException e) {
 			e.printStackTrace();

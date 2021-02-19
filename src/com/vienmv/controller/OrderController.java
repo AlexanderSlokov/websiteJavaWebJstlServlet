@@ -1,13 +1,7 @@
 package com.vienmv.controller;
 
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.sql.Date;
-import java.util.List;
 import java.util.Map;
-import java.util.UUID;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +21,7 @@ import com.vienmv.service.impl.UserServiceImpl;
 import com.vienmv.tools.SendMail;
 import com.vienmv.util.RandomUUID;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/member/order")
 public class OrderController extends HttpServlet {
 	UserService userService = new UserServiceImpl();
@@ -34,6 +29,7 @@ public class OrderController extends HttpServlet {
 	CartItemService cartItemService = new CartServiceItemImpl();
 	long time = System.currentTimeMillis();
 
+	@SuppressWarnings("static-access")
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
@@ -48,6 +44,7 @@ public class OrderController extends HttpServlet {
 		Object objCart = session.getAttribute("cart");
 		if (objCart != null) {
 			// ep ve dung kieu cua no khi them vao o phan them vao gio hang controller
+			@SuppressWarnings("unchecked")
 			Map<Integer, CartItem> map = (Map<Integer, CartItem>) objCart;
 
 			for (CartItem cartItem : map.values()) {
@@ -61,7 +58,7 @@ public class OrderController extends HttpServlet {
 
 		}
 		session.removeAttribute("cart");
-		resp.sendRedirect(req.getContextPath() + "/home");
+		resp.sendRedirect(req.getContextPath() + "/waiting");
 
 	}
 

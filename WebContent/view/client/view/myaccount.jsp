@@ -62,7 +62,7 @@
 				<h1>User name</h1>
 			</div>
 			<div class="col-sm-2">
-				<a href="${pageContext.request.contextPath }" class="pull-right"><img
+				<a href="${pageContext.request.contextPath }/logout" class="pull-right"><img
 					title="profile image" class="img-circle img-responsive"
 					src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"></a>
 			</div>

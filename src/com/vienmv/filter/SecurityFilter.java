@@ -9,18 +9,15 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import com.sun.corba.se.impl.ior.GenericTaggedComponent;
 import com.vienmv.model.User;
 @WebFilter(urlPatterns="/admin/*")
 public class SecurityFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		
 		
 	}
 
@@ -43,9 +40,5 @@ public class SecurityFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		
-		
 	}
-	
-
 }

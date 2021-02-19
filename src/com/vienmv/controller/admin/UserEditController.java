@@ -19,7 +19,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import com.vienmv.model.User;
 import com.vienmv.service.UserService;
 import com.vienmv.service.impl.UserServiceImpl;
+import com.vienmv.util.Constant;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/admin/user/edit" })
 public class UserEditController extends HttpServlet {
 	UserService userService = new UserServiceImpl();
@@ -55,12 +57,11 @@ public class UserEditController extends HttpServlet {
 					user.setRoleId(Integer.parseInt(item.getString()));
 				} else if (item.getFieldName().equals("avatar")) {
 					if (item.getSize() > 0) {// neu co file d
-						final String dir = "F:\\upload";
 						String originalFileName = item.getName();
 						int index = originalFileName.lastIndexOf(".");
 						String ext = originalFileName.substring(index + 1);
 						String fileName = System.currentTimeMillis() + "." + ext;
-						File file = new File(dir + "/" + fileName);
+						File file = new File(Constant.DIR + "/" + fileName);
 						item.write(file);
 
 						user.setAvatar(fileName);
@@ -69,9 +70,7 @@ public class UserEditController extends HttpServlet {
 					}
 				}
 			}
-
 			userService.edit(user);
-
 			resp.sendRedirect(req.getContextPath() + "/admin/user/list");
 		} catch (FileUploadException e) {
 			e.printStackTrace();

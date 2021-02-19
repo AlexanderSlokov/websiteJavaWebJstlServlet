@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.vienmv.model.User;
 import com.vienmv.service.UserService;
 import com.vienmv.service.impl.UserServiceImpl;
-@WebServlet(urlPatterns= {"/admin/user/list"})
+
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns = { "/admin/user/list" })
 public class UserListController extends HttpServlet {
 	UserService userService = new UserServiceImpl();
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<User> userList = userService.getAll();
@@ -24,5 +26,5 @@ public class UserListController extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/view/list-user.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
+
 }

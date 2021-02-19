@@ -2,8 +2,6 @@ package com.vienmv.controller;
 
 import java.io.IOException;
 import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +13,7 @@ import com.vienmv.service.CategoryService;
 import com.vienmv.service.ProductService;
 import com.vienmv.service.impl.CategoryServiceImpl;
 import com.vienmv.service.impl.ProductServiceImpl;
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/welcome")
 
 public class WellcomeController extends HttpServlet {
@@ -24,9 +23,6 @@ public class WellcomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Product> productList = productService.getAll();
 		req.setAttribute("pwelcome", productList);
-
 		req.getRequestDispatcher("/view/client/view/index.jsp").forward(req, resp);
 	}
-	
-
 }

@@ -3,6 +3,7 @@ package com.vienmv.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+@SuppressWarnings("serial")
 public class Cart implements Serializable {
 	private String id;
 	private User buyer;

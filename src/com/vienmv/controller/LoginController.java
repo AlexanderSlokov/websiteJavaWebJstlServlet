@@ -15,6 +15,7 @@ import com.vienmv.service.UserService;
 import com.vienmv.service.impl.UserServiceImpl;
 import com.vienmv.util.Constant;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
 	@Override

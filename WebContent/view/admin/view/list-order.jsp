@@ -63,7 +63,6 @@
 												<th>Quantity</th>
 												<th>Price</th>
 												<th>Sum</th>
-												<th>Status</th>
 												<th>Action</th>
 
 
@@ -84,12 +83,9 @@
 													<td>${list.quantity }</td>
 													<td>$ ${list.product.price }</td>
 													<td>$ ${ list.quantity * list.product.price }</td>
-													<td class="center">Pending</td>
 
 
 													<td><a
-														href="<c:url value='/admin/order/edit?id=${list.id }'/>"
-														class="center">Edit</a> | <a
 														href="<c:url value='/admin/order/delete?id=${list.id }'/>"
 														class="center">Delete</a></td>
 

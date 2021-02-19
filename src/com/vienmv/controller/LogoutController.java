@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.vienmv.util.Constant;
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/logout")
 public class LogoutController extends HttpServlet {
 	@Override

@@ -1,10 +1,7 @@
 package com.vienmv.dao;
 
 import java.util.List;
-
-import com.vienmv.model.Cart;
 import com.vienmv.model.CartItem;
-import com.vienmv.model.Category;
 
 public interface CartItemDao {
 	void insert(CartItem cartItem);

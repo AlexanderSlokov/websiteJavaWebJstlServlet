@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.vienmv.model.Product;
 import com.vienmv.service.ProductService;
 import com.vienmv.service.impl.ProductServiceImpl;
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/product/category")
 public class ProductSeachByCategory extends HttpServlet {
 	ProductService productService=new ProductServiceImpl();
@@ -21,7 +22,5 @@ public class ProductSeachByCategory extends HttpServlet {
 		List<Product> productSeachByCategory =productService.seachByCategory(Integer.parseInt(cate_id));
 		req.setAttribute("productSeachByCategory", productSeachByCategory);
 		req.getRequestDispatcher("/view/client/view/productSeachByCategory.jsp").forward(req, resp);
-		
-		
 	}
 }

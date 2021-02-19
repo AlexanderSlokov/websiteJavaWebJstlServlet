@@ -1,7 +1,6 @@
 package com.vienmv.dao;
 
 import java.util.List;
-
 import com.vienmv.model.Category;
 
 public interface CategoryDao {

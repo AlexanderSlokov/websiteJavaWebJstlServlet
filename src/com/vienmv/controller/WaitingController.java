@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.vienmv.model.User;
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/waiting")
 public class WaitingController extends HttpServlet {
 	@Override
@@ -23,10 +24,8 @@ public class WaitingController extends HttpServlet {
 			}else {
 				resp.sendRedirect(req.getContextPath()+"/welcome");
 			}
-			
 		}else {
 			resp.sendRedirect(req.getContextPath()+"/login");
 		}
 	}
-
 }

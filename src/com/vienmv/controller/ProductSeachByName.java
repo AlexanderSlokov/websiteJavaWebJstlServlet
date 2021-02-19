@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.vienmv.model.Product;
 import com.vienmv.service.ProductService;
 import com.vienmv.service.impl.ProductServiceImpl;
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/product/seach")
 public class ProductSeachByName extends HttpServlet {
 	ProductService productService=new ProductServiceImpl();
@@ -20,8 +21,6 @@ public class ProductSeachByName extends HttpServlet {
 		String name=req.getParameter("name");
 		List<Product> productSeachByName =productService.seachByName(name);
 		req.setAttribute("productSeachByName", productSeachByName);
-		req.getRequestDispatcher("/view/client/view/product-seach-by-name.jsp").forward(req, resp);
-		
-		
+		req.getRequestDispatcher("/view/client/view/product-seach-by-name.jsp").forward(req, resp);	
 	}
 }

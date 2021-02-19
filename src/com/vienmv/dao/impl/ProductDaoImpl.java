@@ -8,11 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.vienmv.dao.ProductDao;
-import com.vienmv.dao.UserDao;
 import com.vienmv.jdbc.JDBCConnection;
 import com.vienmv.model.Category;
 import com.vienmv.model.Product;
-import com.vienmv.model.User;
 import com.vienmv.service.CategoryService;
 import com.vienmv.service.impl.CategoryServiceImpl;
 
@@ -46,7 +44,6 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, product.getName());
 			ps.setDouble(2, product.getPrice());
-			;
 			ps.setString(3, product.getImage());
 			ps.setInt(4, product.getCategory().getId());
 			ps.setString(5, product.getDes());
@@ -86,7 +83,6 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 
 			while (rs.next()) {
 				Category category = categortService.get(rs.getInt("c_id"));
-
 				Product product = new Product();
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("p_name"));
@@ -126,7 +122,6 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 				product.setImage(rs.getString("image"));
 				product.setDes(rs.getString("des"));
 				product.setCategory(category);
-
 				product.setCategory(category);
 				productList.add(product);
 			}
@@ -152,19 +147,15 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 
 			while (rs.next()) {
 				Product product = new Product();
-
 				product.setId(rs.getInt("id"));
 				product.setName(rs.getString("name"));
 				product.setPrice(rs.getLong("price"));
 				product.setImage(rs.getString("image"));
 				product.setDes(rs.getString("des"));
-
 				Category category = new Category();
 				category.setId(rs.getInt("c_id"));
 				category.setName(rs.getString("c_name"));
-
 				product.setCategory(category);
-
 				productList.add(product);
 			}
 
@@ -196,7 +187,6 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 				product.setImage(rs.getString("image"));
 				product.setDes(rs.getString("des"));
 				product.setCategory(category);
-
 				product.setCategory(category);
 				productList.add(product);
 			}
@@ -205,7 +195,6 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return productList;
 	}
 
@@ -230,7 +219,6 @@ public class ProductDaoImpl extends JDBCConnection implements ProductDao {
 				product.setImage(rs.getString("image"));
 				product.setDes(rs.getString("des"));
 				product.setCategory(category);
-
 				product.setCategory(category);
 				productList.add(product);
 			}

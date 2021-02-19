@@ -3,13 +3,9 @@ package com.vienmv.service.impl;
 import java.io.File;
 import java.util.List;
 import com.vienmv.dao.ProductDao;
-import com.vienmv.dao.UserDao;
 import com.vienmv.dao.impl.ProductDaoImpl;
-import com.vienmv.dao.impl.UserDaoImpl;
 import com.vienmv.model.Product;
-import com.vienmv.model.User;
 import com.vienmv.service.ProductService;
-import com.vienmv.service.UserService;
 
 public class ProductServiceImpl implements ProductService {
 	ProductDao productDao = new ProductDaoImpl();

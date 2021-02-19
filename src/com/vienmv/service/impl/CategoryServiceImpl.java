@@ -1,11 +1,9 @@
 package com.vienmv.service.impl;
 
 import java.util.List;
-
 import com.vienmv.dao.CategoryDao;
 import com.vienmv.dao.impl.CategoryDaoImpl;
 import com.vienmv.model.Category;
-import com.vienmv.model.User;
 import com.vienmv.service.CategoryService;
 
 public class CategoryServiceImpl implements CategoryService {

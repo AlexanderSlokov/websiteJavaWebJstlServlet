@@ -16,6 +16,7 @@ import com.vienmv.service.CategoryService;
 import com.vienmv.service.ProductService;
 import com.vienmv.service.impl.CategoryServiceImpl;
 import com.vienmv.service.impl.ProductServiceImpl;
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/product/detail")
 public class ProductDetailController extends HttpServlet {
 	ProductService productService = new ProductServiceImpl();
@@ -25,11 +26,8 @@ public class ProductDetailController extends HttpServlet {
 		String id = req.getParameter("id");
 		Product product = productService.get(Integer.parseInt(id));
 		List<Category> categories = categoryService.getAll();
-
 		req.setAttribute("categories", categories);
-
 		req.setAttribute("product", product);
-
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/view/product-detail.jsp");
 		dispatcher.forward(req, resp);
 	}

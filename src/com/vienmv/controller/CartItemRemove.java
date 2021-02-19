@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.vienmv.model.CartItem;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/member/cart/remove" }) // ?pId=?123
 public class CartItemRemove extends HttpServlet {
 	@Override
@@ -20,6 +21,7 @@ public class CartItemRemove extends HttpServlet {
 		Object obj = httpSession.getAttribute("cart");// Doc tu Session ra
 		String pId = req.getParameter("pId");
 		if (obj != null) {
+			@SuppressWarnings("unchecked")
 			Map<Integer, CartItem> map = (Map<Integer, CartItem>) obj; // ep ve kieu cua no
 			// Xoa san pham trong map
 			map.remove(Integer.parseInt(pId));

@@ -15,6 +15,7 @@ import com.vienmv.service.impl.UserServiceImpl;
 import com.vienmv.tools.SendMail;
 import com.vienmv.util.Constant;
 
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/register")
 public class RegisterController extends HttpServlet {
 
@@ -38,19 +39,17 @@ public class RegisterController extends HttpServlet {
 				}
 			}
 		}
-
 		req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
 	}
 
+	@SuppressWarnings("static-access")
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String email = req.getParameter("email");
-
 		UserService service = new UserServiceImpl();
 		String alertMsg = "";
-
 		if (service.checkExistEmail(email)) {
 			alertMsg = "Email already exist!";
 			req.setAttribute("alert", alertMsg);
@@ -67,7 +66,7 @@ public class RegisterController extends HttpServlet {
 		boolean isSuccess = service.register(username, password, email);
 
 		if (isSuccess) {
-			SendMail sm= new SendMail();
+			SendMail sm = new SendMail();
 			sm.sendMail(email, "UNIFY", "Welcome to UNIFY. Please Login to use service. Thanks !");
 			req.setAttribute("alert", alertMsg);
 			resp.sendRedirect(req.getContextPath() + "/login");

@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.vienmv.model.User;
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns="/admin")
 public class welcome extends HttpServlet {
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
@@ -21,5 +21,4 @@ public class welcome extends HttpServlet {
 		req.setAttribute("username", user.getUsername());
 		req.getRequestDispatcher("/view/admin/view/index.jsp").forward(req, resp);
 	}
-
 }
